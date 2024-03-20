@@ -93,15 +93,11 @@ def handle_start_response(message):
 
     elif message.text == 'Games':
 
-        bot.send_message(message.chat.id, "Loading results, please wait...")
-
         results = upcoming_content.imdb_top_content(num_results=5, content_type='video_game')
 
         main_process(message, results)
 
     else:
-
-        bot.send_message(message.chat.id, "Loading results, please wait...")
 
         results = upcoming_content.imdb_top_content(num_results=5, content_type='feature')
 
