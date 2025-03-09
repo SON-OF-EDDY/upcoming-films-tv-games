@@ -39,8 +39,6 @@ def start(message):
 
 def main_process(message,results):
 
-    bot.send_message(message.chat.id, "Loading results, please wait...")
-
     if results == []:
         bot.send_message(message.chat.id, 'An error occurred. Please contact: https://t.me/tImoHyDe')
     else:
@@ -85,6 +83,8 @@ f'''
 @bot.message_handler(content_types=['text'])
 def handle_start_response(message):
 
+    bot.send_message(message.chat.id, "Loading results, please wait...")
+    
     if message.text == 'TV Shows':
 
         results = upcoming_content.imdb_top_content(num_results=5,content_type='tv_series')
